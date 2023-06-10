@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class GameTest {
     Player petya = new Player(1, "Петя", 20);
-    Player anya = new Player(2, "Аня", 10);
+    Player anya = new Player(2, "Аня", 20);
     Player olya = new Player(3, "Оля", 40);
 
     @Test

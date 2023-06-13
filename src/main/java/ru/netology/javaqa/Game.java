@@ -1,4 +1,5 @@
 package ru.netology.javaqa;
+
 import java.util.HashMap;
 
 public class Game {
@@ -7,9 +8,11 @@ public class Game {
     public void registerAnya() {
         map.put("Аня", 20);
     }
+
     public void registerPetya() {
         map.put("Петя", 20);
     }
+
     public void registerOlya() {
         map.put("Оля", 40);
     }

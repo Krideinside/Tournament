@@ -3,8 +3,6 @@ package ru.netology.javaqa;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-
 class GameTest {
     Game game = new Game();
 
@@ -32,7 +30,6 @@ class GameTest {
 
     @Test
     public void shouldTestWhenDraw() {
-        HashMap<String, Integer> map = new HashMap<>();
         game.registerPetya();
         game.registerOlya();
         game.registerAnya();

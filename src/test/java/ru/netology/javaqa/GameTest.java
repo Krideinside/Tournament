@@ -4,42 +4,29 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class GameTest {
-    Player petya = new Player(1, "Петя", 20);
-    Player anya = new Player(2, "Аня", 20);
-    Player olya = new Player(3, "Оля", 40);
+    Game game = new Game();
 
     @Test
     public void shouldTestWhenFirstPlayerWin() {
-        Game game = new Game();
-
-        game.register(petya);
-        game.register(olya);
+        game.register();
 
         int expected = 1;
         int actual = game.round("Оля", "Петя");
-
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldTestWhenSecondPlayerWin() {
-        Game game = new Game();
-
-        game.register(petya);
-        game.register(olya);
+    public void shouldTestWhenSecondtPlayerWin() {
+        game.register();
 
         int expected = 2;
         int actual = game.round("Петя", "Оля");
-
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldTestWhenDraw() {
-        Game game = new Game();
-
-        game.register(petya);
-        game.register(anya);
+        game.register();
 
         int expected = 0;
         int actual = game.round("Петя", "Аня");
@@ -49,10 +36,7 @@ class GameTest {
 
     @Test
     public void shouldTestWhenFirstPlayerNotRegistered() {
-        Game game = new Game();
-
-        game.register(petya);
-        game.register(anya);
+        game.register();
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Вася", "Петя");
@@ -61,23 +45,16 @@ class GameTest {
 
     @Test
     public void shouldTestWhenSecondPlayerNotRegistered() {
-        Game game = new Game();
-
-        game.register(petya);
-        game.register(anya);
+        game.register();
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
-            game.round("Петя", "Оля");
+            game.round("Петя", "Толя");
         });
     }
 
     @Test
     public void shouldTestWhenNameWithSmallSimbol() {
-        Game game = new Game();
-
-        game.register(petya);
-        game.register(anya);
-
+        game.register();
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("петя", "Аня");
         });
@@ -85,10 +62,7 @@ class GameTest {
 
     @Test
     public void shouldTestWhenNoOneRegistered() {
-        Game game = new Game();
-
-        game.register(petya);
-        game.register(anya);
+        game.register();
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Коля", "Толя");

@@ -5,16 +5,9 @@ import java.util.HashMap;
 public class Game {
     HashMap<String, Integer> map = new HashMap<>();
 
-    public void registerAnya() {
-        map.put("Аня", 20);
-    }
-
-    public void registerPetya() {
-        map.put("Петя", 20);
-    }
-
-    public void registerOlya() {
-        map.put("Оля", 40);
+    public void register(String name, int strength) {
+        Player player = new Player(name, strength);
+        map.put(name, player.getStrength());
     }
 
     public int round(String playerName1, String playerName2) {

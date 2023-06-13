@@ -3,12 +3,16 @@ package ru.netology.javaqa;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 class GameTest {
     Game game = new Game();
 
     @Test
     public void shouldTestWhenFirstPlayerWin() {
-        game.register();
+        game.registerPetya();
+        game.registerOlya();
+        game.registerAnya();
 
         int expected = 1;
         int actual = game.round("Оля", "Петя");
@@ -17,7 +21,9 @@ class GameTest {
 
     @Test
     public void shouldTestWhenSecondtPlayerWin() {
-        game.register();
+        game.registerPetya();
+        game.registerOlya();
+        game.registerAnya();
 
         int expected = 2;
         int actual = game.round("Петя", "Оля");
@@ -26,7 +32,10 @@ class GameTest {
 
     @Test
     public void shouldTestWhenDraw() {
-        game.register();
+        HashMap<String, Integer> map = new HashMap<>();
+        game.registerPetya();
+        game.registerOlya();
+        game.registerAnya();
 
         int expected = 0;
         int actual = game.round("Петя", "Аня");
@@ -36,7 +45,9 @@ class GameTest {
 
     @Test
     public void shouldTestWhenFirstPlayerNotRegistered() {
-        game.register();
+        game.registerPetya();
+        game.registerOlya();
+        game.registerAnya();
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Вася", "Петя");
@@ -45,7 +56,9 @@ class GameTest {
 
     @Test
     public void shouldTestWhenSecondPlayerNotRegistered() {
-        game.register();
+        game.registerPetya();
+        game.registerOlya();
+        game.registerAnya();
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Петя", "Толя");
@@ -54,7 +67,10 @@ class GameTest {
 
     @Test
     public void shouldTestWhenNameWithSmallSimbol() {
-        game.register();
+        game.registerPetya();
+        game.registerOlya();
+        game.registerAnya();
+
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("петя", "Аня");
         });
@@ -62,7 +78,9 @@ class GameTest {
 
     @Test
     public void shouldTestWhenNoOneRegistered() {
-        game.register();
+        game.registerPetya();
+        game.registerOlya();
+        game.registerAnya();
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Коля", "Толя");

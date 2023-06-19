@@ -6,7 +6,7 @@ public class Game {
     HashMap<String, Integer> map = new HashMap<>();
 
     public void register(Player player) {
-        map.put(player.getName(), player.getStrength());
+        map.put(player.name, player.strength);
     }
 
     public int round(String playerName1, String playerName2) {
